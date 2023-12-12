@@ -9,8 +9,13 @@ void free_stack(stack_t **stack);
 int main(int argc, char *argv[])
 {
 	instruction_t instructions[] = {
-		{"push", &push},
-		{"pall", &pall},
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"swap", swap},
+		{"add", add},
+		{"pop", pop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	char *line = NULL;
@@ -19,7 +24,6 @@ int main(int argc, char *argv[])
 	FILE *file;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	(void)argv;
 
 	if (argc != 2)
 	{
