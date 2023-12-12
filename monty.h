@@ -1,15 +1,23 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+
 #include <stdio.h>
 #include <time.h>
-#include <stdlib.h>
+#include <stdlib.>
 #include <assert.h>
 
 #define MAX 5
 #define ERR "\x1B[31m"
 #define SUCCESS "\x1B[32m"
 #define RESET "\033[0m"
+
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -63,5 +71,11 @@ int pop(stack *s);
 void display(stack *s);
 void nop(void);
 void add(struct stack *s);
+
+stack_t *createStack(void);
+void push(stack_t **stack,  unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void process_line(stack_t **stack, const char *line, instruction_t instructions[]);
+void cleanup(stack_t **stack);
 
 #endif /* _MONTY_H_ */
