@@ -1,8 +1,12 @@
 #include "monty.h"
-int global_result;
 
+/**
+ * f_push - pushes an element to the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ */
 void f_push(stack_t **stack, unsigned int line_number)
-{	
+{
 	char *str = NULL;
 	stack_t *new;
 	int n;
