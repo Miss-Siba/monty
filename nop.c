@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /*
- * nop - takes no parameters
+ * f_nop - takes no parameters
  * @stack: pointer to the stack
  * @line_number: line number of the instruction
  * Return: Returns nothing
