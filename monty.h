@@ -64,7 +64,7 @@ typedef struct stack
 stack;
 
 
-
+void pop(stack_t **stack, unsigned int line_number)
 void add(struct stack *s);
 stack_t *createStack(void);
 void push(stack_t **stack,  unsigned int line_number);
