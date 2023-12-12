@@ -2,27 +2,13 @@
 
 /*
  * nop - takes no parameters
+ * @stack: pointer to the stack
+ * @line_number: line number of the instruction
  * Return: Returns nothing
  */
 
-void nop(void)
+void f_nop(stack_t **stack, unsigned int line_number)
 {
-	asm("nop");
-
-}
-
-int main(void)
-{
-	clock_t start, end;
-	double elapsed;
-
-	start = clock();
-	for (int i = 0; i < 10; i++)
-	{
-		nop();
-	}
-	end = clock();
-	elapsed = (double)(end - start) / CLOCKS_PER_SEC;
-	printf("Elapsed time: %f seconds\n", elapsed);
-	return (0);
+	(void)stack;
+	(void)line_number;
 }

@@ -63,15 +63,17 @@ typedef struct stack
 }
 stack;
 
+extern int global_result;
 
-void pop(stack_t **stack, unsigned int line_number)
-void add(struct stack *s);
+void f_pop(stack_t **stack, unsigned int line_number);
+void f_add(stack_t **stack, unsigned int line_number);
 stack_t *createStack(void);
-void push(stack_t **stack,  unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void process_line(stack_t **stack, const char *line, instruction_t instructions[]);
-void cleanup(stack_t **stack);
-void pint(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number)
-
+void f_push(stack_t **stack,  unsigned int line_number);
+void f_pall(stack_t **stack, unsigned int line_number);
+void f_process_line(stack_t **stack, const char *line, instruction_t instructions[]);
+void free_stack(stack_t **stack);
+void f_pint(stack_t **stack, unsigned int line_number);
+void f_swap(stack_t **stack, unsigned int line_number);
+void f_nop(stack_t **stack, unsigned int line_number);
+size_t stack_size(const stack_t *stack);
 #endif /* _MONTY_H_ */

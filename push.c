@@ -1,6 +1,7 @@
 #include "monty.h"
+int global_result;
 
-void push(stack_t **stack, unsigned int line_number)
+void f_push(stack_t **stack, unsigned int line_number)
 {	
 	char *str = NULL;
 	stack_t *new;

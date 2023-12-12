@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void pop(stack_t **stack, unsigned int line_number)
+void f_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
 

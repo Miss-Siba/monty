@@ -5,19 +5,30 @@
  * @s: pointer to a stack struct
  */
 
-void add(struct stack *s)
+void f_add(stack_t **stack, unsigned int line_number)
 {
-	int a, b, c;
+	stack_t *top;
+	int len = 0, sum;
 
-	if (s->current_size < 2)
+	top = *stack;
+
+	while (top)
 	{
-		printf("Error: can't add, stack too short\n");
+		top = top->next;
+		len++;
+	}
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr,"L%d: can't add, stack too short\n", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
-	a = pop(s);
-	b = pop(s);
-	c = a + b;
+	top = *stack;
+	sum = top->n + top->next->n;
+	top->next->n = sum;
+	*stack = top->next;
 
-	push(s, c);
+	free(top);
 }

@@ -9,13 +9,13 @@ void free_stack(stack_t **stack);
 int main(int argc, char *argv[])
 {
 	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"swap", swap},
-		{"add", add},
-		{"pop", pop},
-		{"nop", nop},
+		{"push", f_push},
+		{"pall", f_pall},
+		{"pint", f_pint},
+		{"swap", f_swap},
+		{"add", f_add},
+		{"pop", f_pop},
+		{"nop", f_nop},
 		{NULL, NULL}
 	};
 	char *line = NULL;

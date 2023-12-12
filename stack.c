@@ -1,13 +1,15 @@
 #include "monty.h"
 
-Stack* createStack(void)
+stack_t* createStack(void)
 {
-	Stack* stack = (Stack*)malloc(sizeof(Stack));
+	stack_t *stack = malloc(sizeof(stack_t));
 	if (stack == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
-	stck-> = NULL;
+	stack->n = 0;
+	stack->prev = NULL;
+	stack->next = NULL;
 	return stack;
 }
