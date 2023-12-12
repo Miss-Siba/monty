@@ -1,10 +1,7 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
-
-#include <stdio.h>
 #include <time.h>
-#include <stdlib.>
 #include <assert.h>
 
 #define MAX 5
@@ -66,12 +63,9 @@ typedef struct stack
 }
 stack;
 
-void push(stack *s, int data);
-int pop(stack *s);
-void display(stack *s);
-void nop(void);
-void add(struct stack *s);
 
+
+void add(struct stack *s);
 stack_t *createStack(void);
 void push(stack_t **stack,  unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
