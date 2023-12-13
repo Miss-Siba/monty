@@ -25,7 +25,7 @@ void f_push(stack_t **stack, unsigned int line_number)
 		if (flag == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			free(file)
+			free(file);
 			free_stack(*new);
 			exit(EXIT_FAILURE);
 		}
@@ -33,7 +33,7 @@ void f_push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(file)
+		free(file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
