@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	FILE *fs = NULL;
 	char *lineptr = NULL, *op = NULL;
-	size_t n = 0;
+	char buffer[1024];
 
 	var.queue = 0;
 	var.stack_len = 0;
@@ -34,9 +34,13 @@ int main(int argc, char *argv[])
 	on_exit(free_lineptr, &lineptr);
 	on_exit(f_stack, &stack);
 	on_exit(f_fs_close, fs);
-	while (getline(&lineptr, &n, fs) != -1)
+	while (fgets(buffer, sizeof(buffer), fs) != NULL)
 	{
 		line_number++;
+		if (buffer[strlen(buffer) - 1] == '\n')
+		{
+			buffer[strlen(buffer) - 1] = '\0';
+		}
 		op = strtok(lineptr, "\n\t\r ");
 		if (op != NULL && op[0] != '#')
 		{
