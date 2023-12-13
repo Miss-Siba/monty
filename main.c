@@ -2,10 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define _BSD_SOURCE
-#define _GNU_SOURCE
-
-
+#define _POSIX_C_SOURCE 200809L
 /**
  * main - Monty bytecode interpreter
  * @argc: number of arguments passed
@@ -36,8 +33,8 @@ int main(int argc, char *argv[])
 	}
 	on_exit(free_lineptr, &lineptr);
 	on_exit(free_stack, &stack);
-	on_exit(f_fs_close, fs);
-	while (getline(&lineptr, &n, fs) != -1)
+	on_exit(f_fs_close);
+	while (fgets(lineptr, n, fs) != NULL)
 	{
 		line_number++;
 		op = strtok(lineptr, "\n\t\r ");
