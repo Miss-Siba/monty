@@ -9,6 +9,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define _GNU_SOURCE
+#define _BSD_SOURCE
+#define STACK 0
+#define QUEUE 1
+
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
@@ -19,9 +24,6 @@ typedef struct var_s
 	int queue;
 	size_t stack_len;
 } var_t;
-#define _GNU_SOURCE
-#define STACK 0
-#define QUEUE 1
 
 /* global struct to hold flag for queue and stack length */
 extern var_t var;
