@@ -1,8 +1,8 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-#define _POSIX_C_SOURCE 200809L
+/* global struct to hold flag for queue and stack length */
+var_t var;
+
 /**
  * main - Monty bytecode interpreter
  * @argc: number of arguments passed
@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	on_exit(free_lineptr, &lineptr);
-	on_exit(free_stack, &stack);
-	on_exit(f_fs_close);
-	while (fgets(lineptr, n, fs) != NULL)
+	on_exit(f_stack, &stack);
+	on_exit(f_fs_close, fs);
+	while (getline(&lineptr, &n, fs) != -1)
 	{
 		line_number++;
 		op = strtok(lineptr, "\n\t\r ");

@@ -79,7 +79,6 @@ void f_stack(stack_t **stack, unsigned int line_number);
 void f_queue(stack_t **stack, unsigned int line_number);
 void f_pchar(stack_t **stack, unsigned int line_number);
 void f_pstr(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t **stack);
 void f_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);

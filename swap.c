@@ -1,5 +1,6 @@
 #include "monty.h"
 
+
 /**
  * f_swap - swap top two elements of `stack'
  * @stack: double pointer to head of stack
@@ -9,6 +10,7 @@
  */
 void f_swap(stack_t **stack, unsigned int line_number)
 {
+
 	stack_t *next;
 
 	if (var.stack_len < 2)
