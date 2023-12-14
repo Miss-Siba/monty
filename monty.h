@@ -34,7 +34,7 @@ extern var_t var;
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
- *
+ * @element: stores the value of the data in the stack
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
@@ -64,7 +64,7 @@ void get_op(char *op, stack_t **stack, unsigned int line_number);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_push2(stack_t **stack, int n);
 void f_pall(stack_t **stack, unsigned int line_number);
-void f_process_line(stack_t **stack, const char *line, instruction_t instructions[]);
+
 ssize_t _getline(char **buffer, size_t *size, FILE *stream);
 void f_pint(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
