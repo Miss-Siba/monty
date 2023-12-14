@@ -37,7 +37,7 @@ int execute(char *content, stack_t **stack, unsigned int line_num, FILE *file)
 	if (o && op[found].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, o);
-		fclose(file),free(content), free_stack(stack);
+		fclose(file), free(content), free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 

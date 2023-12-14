@@ -15,7 +15,7 @@ int is_numeric(const char *str)
 	for (; str[j] != '\0'; j++)
 	{
 		if (str[j] < '0' || str[j] > '9')
-			return(0);
+			return (0);
 	}
 	return (1);
 }
