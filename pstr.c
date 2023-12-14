@@ -16,7 +16,7 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	temp = *stack;
-	while (temp != NULL)
+	while (temp)
 	{
 		ch = temp->n;
 		if (ch > 127 || ch <= 0)
@@ -24,8 +24,7 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 
 		putchar(ch);
 		temp = temp->next;
-		if (temp == *stack)
-			break;
+
 	}
 	putchar('\n');
 }
