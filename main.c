@@ -1,5 +1,9 @@
 #include "monty.h"
+<<<<<<< HEAD:test/main.c
 <<<<<<< Updated upstream
+=======
+#define _GNU_SOURCE
+>>>>>>> 6e5ec19b544acff990023f558c17f33ed3c93e6c:main.c
 
 /* global struct to hold flag for queue and stack length */
 var_t var;
@@ -46,9 +50,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	on_exit(free_lineptr, &lineptr);
-	on_exit(f_stack, &stack);
-	on_exit(f_fs_close, fs);
+
+
 	while (fgets(buffer, sizeof(buffer), fs) != NULL)
 	{
 		line_number++;
@@ -56,12 +59,15 @@ int main(int argc, char *argv[])
 		{
 			buffer[strlen(buffer) - 1] = '\0';
 		}
+		lineptr = buffer;
 		op = strtok(lineptr, "\n\t\r ");
 		if (op != NULL && op[0] != '#')
 		{
 			get_op(op, &stack, line_number);
 		}
 	}
+
+	fclose(fs);
 	exit(EXIT_SUCCESS);
 =======
 	file = fopen(argv[1], "r");
@@ -88,3 +94,4 @@ int main(int argc, char *argv[])
 	return (0);
 >>>>>>> Stashed changes
 }
+
