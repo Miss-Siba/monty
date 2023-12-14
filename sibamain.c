@@ -7,7 +7,7 @@
 var_t var;
 
 void process_line(stack_t **stack, const char *line, instruction_t instructions[]);
-void free_stack(stack_t **stack);
+
 
 int main(int argc, char *argv[])
 {
@@ -82,12 +82,3 @@ void process_line(stack_t **stack, const char *line, instruction_t instructions[
 	}
 }
 
-void free_stack(stack_t **stack)
-{
-	if (*stack != NULL)
-	{
-		stack_t *temp = *stack;
-		*stack = (*stack)->next;
-		free(temp);
-	}
-}

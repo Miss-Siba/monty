@@ -84,5 +84,6 @@ void f_pstr(stack_t **stack, unsigned int line_number);
 void f_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 int add_node(stack_t **stack, int element);
+extern void free_stack(stack_t **stack);
 
 #endif /* _MONTY_H_ */
