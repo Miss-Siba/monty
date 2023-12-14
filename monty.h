@@ -25,11 +25,20 @@ typedef struct var_s
 	int stack_len;
 } var_t;
 extern var_t var;
-
+/**
+ * struct arg_s - Structure to hold arguments
+ * @stream: File stream
+ * @line: Line read from the file
+ * @line_number: Line number in the file
+ * @stack_len: Length of the stack
+ * @stack: Stack mode indicator (0 for stack, 1 for queue)
+ *
+ * Description: Structure to hold various arguments used in Monty interpreter.
+ */
 typedef struct arg_s
 {
-        FILE *stream;
-        char *line;
+	FILE *stream;
+	char *line;
 	unsigned int line_number;
 	int stack_len;
 	int stack;
