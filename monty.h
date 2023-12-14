@@ -14,6 +14,7 @@
 #define STACK 0
 #define QUEUE 1
 
+
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
@@ -39,6 +40,7 @@ extern var_t var;
  */
 typedef struct stack_s
 {
+	int element;
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
@@ -81,6 +83,6 @@ void f_pchar(stack_t **stack, unsigned int line_number);
 void f_pstr(stack_t **stack, unsigned int line_number);
 void f_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
-stack_t *add_node(stack_t **stack, const int n);
+int add_node(stack_t **stack, int element);
 
 #endif /* _MONTY_H_ */

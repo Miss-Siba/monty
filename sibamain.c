@@ -3,6 +3,9 @@
 
 #define _POSIX_C_SOURCE 200809L
 
+/* global struct to hold flag for queue and stack length */
+var_t var;
+
 void process_line(stack_t **stack, const char *line, instruction_t instructions[]);
 void free_stack(stack_t **stack);
 

@@ -1,8 +1,7 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-#define _POSIX_C_SOURCE 200809L
+/* global struct to hold flag for queue and stack length */
+var_t var;
 
 /**
  * main - Monty bytecode interpreter
@@ -17,7 +16,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	FILE *fs = NULL;
 	char *lineptr = NULL, *op = NULL;
-	size_t n = 0;
+	char buffer[1024];
 
 	var.queue = 0;
 	var.stack_len = 0;
@@ -32,13 +31,16 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	on_exit(free_lineptr, &lineptr);
-	on_exit(free_stack, &stack);
-	on_exit(f_fs_close);
-	while (fgets(lineptr, n, fs) != NULL)
+	on_exit(f_stack, &stack);
+	on_exit(f_fs_close, fs);
+	while (fgets(buffer, sizeof(buffer), fs) != NULL)
 	{
 		line_number++;
+		if (buffer[strlen(buffer) - 1] == '\n')
+		{
+			buffer[strlen(buffer) - 1] = '\0';
+		}
 		op = strtok(lineptr, "\n\t\r ");
 		if (op != NULL && op[0] != '#')
 		{
