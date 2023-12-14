@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <ctype.h>
 
 /**
  * f_pstr - print string from stack of ints up to null byte,
@@ -9,7 +10,7 @@
  * Return: void
  */
 void f_pstr(stack_t **stack, unsigned int line_number)
-{
+{	int isascii (int ch);
 	stack_t *temp;
 	int ch;
 
@@ -19,9 +20,8 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 	while (temp != NULL)
 	{
 		ch = temp->n;
-		if (ch > 127 || ch <= 0)
+		if (!isascii(ch) || ch == 0)
 			break;
-
 		putchar(ch);
 		temp = temp->next;
 		if (temp == *stack)

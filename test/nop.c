@@ -1,6 +1,6 @@
 #include "monty.h"
 
-/*
+/**
  * f_nop - takes no parameters
  * @stack: pointer to the stack
  * @line_number: line number of the instruction

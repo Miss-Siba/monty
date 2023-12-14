@@ -1,15 +1,15 @@
 #include "monty.h"
 
-stack_t* createStack(void)
+/**
+ * f_stack - sets the format of the data to a stack (LIFO)
+ * @stack: double pointer to the beginning of the stack
+ * @line_number: script line number
+ *
+ * Return: void
+ */
+void f_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *stack = malloc(sizeof(stack_t));
-	if (stack == NULL)
-	{
-		fprintf(stderr, "Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-	stack->n = 0;
-	stack->prev = NULL;
-	stack->next = NULL;
-	return stack;
+	(void)stack;
+	(void)line_number;
+	args->stack = 1;
 }

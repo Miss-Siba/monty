@@ -9,25 +9,16 @@
  */
 void f_mul(stack_t **stack, unsigned int line_number)
 {
-	stack_t *h;
-	int length = 0;
-	int t;
+	int n;
 
-	while (h)
+	if (var.stack_len < 2)
 	{
-		h = h->next;
-		length++;
-	}
-	if (length < 2)
-	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
-		free_stack(stack);
+		fprintf(stderr,
+			"L%u: can't mul, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
-	h = *stack;
-	t = h->n * h->next->n;
-	h->next->n = t;
-	*stack = h->next;
-	free(h);
-
+	n = (*stack)->n;
+	f_pop(stack, line_number);
+	(*stack)->n *= n;
 }

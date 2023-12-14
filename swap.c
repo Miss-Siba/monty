@@ -1,36 +1,48 @@
 #include "monty.h"
-
-
 /**
- * f_swap - swap top two elements of `stack'
- * @stack: double pointer to head of stack
- * @line_number: line number of current operation
+ * stack_size - Computes the size of a stack_t linked list.
+ * @stack: A pointer to the head of the stack.
  *
- * Return: void
+ * Return: The size of the stack.
+ */
+size_t stack_size(const stack_t *stack)
+{
+	size_t size = 0;
+	const stack_t *current = stack;
+
+	while (current != NULL)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
+}
+/**
+ * f_swap - Swaps the top two elements of a stack.
+ * @stack: A double pointer to the head of the stack.
+ * @line_number: The line number of the opcode being executed.
  */
 void f_swap(stack_t **stack, unsigned int line_number)
 {
+	stack_t *h;
+	int temp;
+	int length = 0;
 
-	stack_t *next;
-
-	if (var.stack_len < 2)
+	while (h)
 	{
-		fprintf(stderr,
-			"L%u: can't swap, stack too short\n",
-			line_number);
+		h = h->next;
+		length++;
+	}
+
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (var.stack_len == 2)
-	{
-		*stack = (*stack)->next;
-		return;
-	}
-	next = (*stack)->next;
-	next->prev = (*stack)->prev;
-	(*stack)->prev->next = next;
-	(*stack)->prev = next;
-	(*stack)->next = next->next;
-	next->next->prev = *stack;
-	next->next = *stack;
-	*stack = next;
+	h = *stack;
+	temp = h->n;
+	h->n = h->next->n;
+	h->next->n = temp;
+
 }

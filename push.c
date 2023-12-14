@@ -1,49 +1,38 @@
 #include "monty.h"
-#include <ctype.h>
-
 /**
- * check_for_digit - checks that a string only contains digits
- * @arg: string to check
- *
- * Return: 0 if only digits, else 1
+ * is_numeric - Checks if a string represents a numeric value.
+ * @str: The string to check.
+ * Return: 1 if numeric, 0 otherwise.
  */
-static int check_for_digit(char *arg)
+int is_numeric(const char *str)
 {
-	int i;
+	int j = 0;
 
-	for (i = 0; arg[i]; i++)
+	if (!str)
+		return (0);
+	if (str[0] == '-')
+		j++;
+	for (; str[j] != '\0'; j++)
 	{
-		if (arg[i] == '-' && i == 0)
-			continue;
-		if (isdigit(arg[i]) == 0)
-			return (1);
+		if (str[j] < '0' || str[j] > '9')
+			return(0);
 	}
-	return (0);
+	return (1);
 }
-
 /**
- * f_push - push an integer onto the stack
- * @stack: double pointer to the beginning of the stack
- * @line_number: script line number
- *
- * Return: void
+ * f_push - add node to the stack
+ * @head: stack head
+ * @line_number: line_number
+ * Return: no return
  */
-void f_push(stack_t **stack, unsigned int line_number)
+void f_push(stack_t **head, unsigned int line_number)
 {
-	char *arg;
-	int n;
+	char *string = NULL;
 
-	arg = strtok(NULL, "\n\t\r ");
-	if (arg == NULL || check_for_digit(arg))
+	if (!string || !is_numeric(string))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(arg);
-	if (!add_node(stack, n))
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	var.stack_len++;
 }

@@ -2,27 +2,32 @@
 
 /**
  * f_add - adds the top two elements of the stack and pushes the result.
- * @stack: pointer to a stack struct
+ * @head: pointer to the head.
  * @line_number: line number
  */
 
-void f_add(stack_t **stack, unsigned int line_number)
+void f_add(stack_t **head, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t *t;
 	int sum;
+	int len = 0;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	while (t)
+	{
+		t = t->next;
+		len++;
+	}
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		free_stack(stack);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
+	t = *head;
+	sum = t->n + t->next->n;
+	t->next->n = sum;
 
-	sum = (*stack)->n + (*stack)->next->n;
-	(*stack)->next->n = sum;
+	*head = t->next;
 
-	top = (*stack)->next;
-	(*stack)->next = top->next;
-
-	free(top);
+	free(t);
 }

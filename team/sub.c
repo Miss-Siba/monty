@@ -9,23 +9,16 @@
  */
 void f_sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *h;
-	int t;
-	int length = 0;
+	int n;
 
-	h = *stack;
-	for (length = 0; h != NULL; length++)
-		h = h->next;
-
-	if (length < 2)
+	if (var.stack_len < 2)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		free_stack(stack);
+		fprintf(stderr,
+			"L%u: can't sub, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
-	h = *stack;
-	t = h->next->n - h->n;
-	h->next->n = t;
-	*stack = h->next;
-	free(h);
+	n = (*stack)->n;
+	f_pop(stack, line_number);
+	(*stack)->n -= n;
 }
