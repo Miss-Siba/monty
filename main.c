@@ -41,12 +41,15 @@ int main(int argc, char *argv[])
 		{
 			buffer[strlen(buffer) - 1] = '\0';
 		}
+		lineptr = buffer;
 		op = strtok(lineptr, "\n\t\r ");
 		if (op != NULL && op[0] != '#')
 		{
 			get_op(op, &stack, line_number);
 		}
 	}
+
+	fclose(fs);
 	exit(EXIT_SUCCESS);
 }
 
