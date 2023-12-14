@@ -1,4 +1,5 @@
 #include "monty.h"
+#define _GNU_SOURCE
 
 /* global struct to hold flag for queue and stack length */
 var_t var;
@@ -31,9 +32,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	on_exit(free_lineptr, &lineptr);
-	on_exit(f_stack, &stack);
-	on_exit(f_fs_close, fs);
+
+
 	while (fgets(buffer, sizeof(buffer), fs) != NULL)
 	{
 		line_number++;
@@ -49,3 +49,4 @@ int main(int argc, char *argv[])
 	}
 	exit(EXIT_SUCCESS);
 }
+
