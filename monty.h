@@ -42,7 +42,7 @@ extern struct arg_t *arg;
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
- * @element: stores the value of the data in the stack
+ *
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO ALX project
  */
@@ -71,11 +71,7 @@ void get_op(char *op, stack_t **stack, unsigned int line_number);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_push2(stack_t **stack, int n);
 void f_pall(stack_t **stack, unsigned int line_number);
-<<<<<<< HEAD
 int execute(char *content, stack_t **stack, unsigned int line_num, FILE *file);
-=======
-
->>>>>>> 6e5ec19b544acff990023f558c17f33ed3c93e6c
 ssize_t _getline(char **buffer, size_t *size, FILE *stream);
 void f_pint(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
@@ -92,18 +88,11 @@ void f_queue(stack_t **stack, unsigned int line_number);
 void f_stack(stack_t **stack, unsigned int line_number);
 void f_pchar(stack_t **stack, unsigned int line_number);
 void f_pstr(stack_t **stack, unsigned int line_number);
-<<<<<<< HEAD
 void free_stack(stack_t **stack);
 void free_lineptr(void *arg);
 void f_fs_close(void *arg);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
 int is_numeric(const char *str);
-=======
-void f_fs_close(int status, void *arg);
-void free_lineptr(int status, void *arg);
-int add_node(stack_t **stack, int element);
-extern void free_stack(stack_t **stack);
->>>>>>> 6e5ec19b544acff990023f558c17f33ed3c93e6c
 
 #endif /* _MONTY_H_ */
